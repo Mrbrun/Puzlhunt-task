@@ -35,7 +35,9 @@ namespace puzlhunt
         static void firstTask() // Första uppdraget med programmet. 
         {
             correctPassword();
-            string pwGuess = Console.ReadLine();
+            string info = "Hmmmmmm?";
+            TypeLine(info);
+            string answer = Console.ReadLine();
 
         }
 
