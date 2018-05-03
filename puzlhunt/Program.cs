@@ -12,7 +12,7 @@ namespace puzlhunt
     {
         static void Main(string[] args)
         {
-            while (true)
+            while (true) // While för att programmet inte ska stänga
             {
                 Console.Clear();
                 string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\nPassword:\n";
