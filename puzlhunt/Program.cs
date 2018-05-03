@@ -31,12 +31,18 @@ namespace puzlhunt
                 }
                 else
                 {
-                    Console.Clear();
-                    string wrongPassword = "Please try again...";
-                    TypeLine(wrongPassword);
+                    wrongPassword();
                 }
 
             }
+        }
+
+        static void wrongPassword()
+        {
+            Console.Clear();
+            string wrongPassword = "Please try again...";
+            TypeLine(wrongPassword);
+            System.Threading.Thread.Sleep(3000);
         }
 
         static void writeASCII()
@@ -44,7 +50,7 @@ namespace puzlhunt
                 Console.WriteAscii("UNF PUZLHUNT", Color.Lime);
         }
 
-        static void TypeLine(string line)
+        static void TypeLine(string line) // Skriver ut text sakta.
         {
             for (int i = 0; i < line.Length; i++)
             {
