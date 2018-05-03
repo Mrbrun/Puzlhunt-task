@@ -34,13 +34,19 @@ namespace puzlhunt
 
         static void firstTask() // Första uppdraget med programmet. 
         {
-            System.Threading.Thread.Sleep(3000); // Sleep för att det ska se ut som att det laddar.
-            Console.Clear();
-            string password = "Password: \n";
-            TypeLine(password);
-
+            correctPassword();
             string pwGuess = Console.ReadLine();
 
+        }
+
+        static void correctPassword() // Om man skriver rätt lösenord.
+        {
+            System.Threading.Thread.Sleep(3000); // Sleep för att det ska se ut som att det laddar.
+            Console.Clear();
+            string passwordTrue = "Correct!";
+            TypeLine(passwordTrue);
+            System.Threading.Thread.Sleep(1500);
+            Console.Clear();
         }
 
         static void wrongPassword() // Om man skriver fel lösenord
