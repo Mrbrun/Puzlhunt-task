@@ -12,7 +12,7 @@ namespace puzlhunt
     {
         static void Main(string[] args)
         {
-            while (true) // While för att programmet inte ska stänga
+            while (true) // While för att programmet inte ska stänga, utan börja om.
             {
                 Console.Clear();
                 string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\nPassword:\n";
@@ -22,12 +22,7 @@ namespace puzlhunt
 
                 if(answer == "QWERTY") // Läs vad Password är
                 {
-                    System.Threading.Thread.Sleep(3000); // Sleep för att det ska se ut som att det laddar.
-                    Console.Clear();
-                    string password = "Password: \n";
-                    TypeLine(password);
-
-                    string pwGuess = Console.ReadLine();
+                    firstTask();
                 }
                 else
                 {
@@ -37,7 +32,18 @@ namespace puzlhunt
             }
         }
 
-        static void wrongPassword()
+        static void firstTask() // Första uppdraget med programmet. 
+        {
+            System.Threading.Thread.Sleep(3000); // Sleep för att det ska se ut som att det laddar.
+            Console.Clear();
+            string password = "Password: \n";
+            TypeLine(password);
+
+            string pwGuess = Console.ReadLine();
+
+        }
+
+        static void wrongPassword() // Om man skriver fel lösenord
         {
             Console.Clear();
             string wrongPassword = "Please try again...";
@@ -45,9 +51,9 @@ namespace puzlhunt
             System.Threading.Thread.Sleep(3000);
         }
 
-        static void writeASCII()
+        static void writeASCII() // Skriver ut snygg ASCII text.
         {
-                Console.WriteAscii("UNF PUZLHUNT", Color.Lime);
+            Console.WriteAscii("UNF PUZLHUNT", Color.Lime);
         }
 
         static void TypeLine(string line) // Skriver ut text sakta.
