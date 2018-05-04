@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Console = Colorful.Console;
+using System.Diagnostics;
 
 namespace puzlhunt
 {
     class Program
     {
+        static void simpleSleep(int msTime) { System.Threading.Thread.Sleep(msTime); } // Simpel Sleep, mest för effekt.
+
         static void Main(string[] args)
         {
             while (true) // While för att programmet inte ska stänga, utan börja om.
@@ -31,19 +34,44 @@ namespace puzlhunt
 
             }
         }
-
+     
         static void firstTask() // Första uppdraget med programmet. 
         {
             correctPassword();
-            string info = "Hmmmmmm?";
+            string info = "One simple task, follow me.\n";
+            string task = "hejhej";
+            string newLine = "\n"; // Måste hitta en bättre lösning.
             TypeLine(info);
+            simpleSleep(3000);
+            Console.Clear();
+            TypeLine(task);
+            TypeLine(newLine); // Måste hitta en bättre lösning.
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            double tElapsed = watch.ElapsedMilliseconds;
             string answer = Console.ReadLine();
+            if (task == answer)
+            {
+                string failString = "Correct! Good for you.";
+                Console.Clear();
+                TypeLine(failString);
+                string answerTwo = Console.ReadLine();
+
+            }
+            else if(task != answer)
+            {
+                Console.WriteLine("BEEEP Wrong.");
+                string answerThree = Console.ReadLine();
+
+            }
+            watch.Stop();
+
 
         }
 
         static void correctPassword() // Om man skriver rätt lösenord.
         {
-            System.Threading.Thread.Sleep(3000); // Sleep för att det ska se ut som att det laddar.
+            simpleSleep(3000);
             Console.Clear();
             string passwordTrue = "Correct!";
             TypeLine(passwordTrue);
@@ -56,7 +84,7 @@ namespace puzlhunt
             Console.Clear();
             string wrongPassword = "Please try again...";
             TypeLine(wrongPassword);
-            System.Threading.Thread.Sleep(3000);
+            simpleSleep(3000);
         }
 
         static void writeASCII() // Skriver ut snygg ASCII text.
