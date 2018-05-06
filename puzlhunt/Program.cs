@@ -43,15 +43,60 @@ namespace puzlhunt
      
         static void firstTask() // Första uppdraget med programmet. 
         {
+            string secret = "Cheese";
             correctPassword();
-            string info = "One simple task, follow me.\n";
-            string task = "hejhej";
+            string info = "\n";
+            string vincent = "[Vincent]";
+            string jules = "[Jules]";
+            string task1 = "You know what they call a Quarter Pounder with Cheese in Paris?";
+            string task2 = "They don't call it a Quarter Pounder with Cheese?";
+            string task3 = "No, they got the metric system there, they wouldn't know what the fuck a Quarter Pounder is.";
+            string task4 = "What'd they call it?";
+            string task5 = "They call it Royale with Cheese.";
+            string task6 = "Royale with Cheese..";
             string newLine = "\n"; // Måste hitta en bättre lösning.
             TypeLine(info);
             simpleSleep(3000);
             Console.Clear();
-            TypeLine(task);
+            TypeLine(vincent);
+            TypeLine(newLine);
+            TypeLine(task1);
             TypeLine(newLine); // Måste hitta en bättre lösning.
+
+            simpleSleep(500);
+
+            TypeLine(jules);
+            TypeLine(newLine);
+            TypeLine(task2);
+            TypeLine(newLine);
+
+            simpleSleep(500);
+
+            TypeLine(vincent);
+            TypeLine(newLine);
+            TypeLine(task3);
+            TypeLine(newLine);
+
+            simpleSleep(500);
+
+            TypeLine(jules);
+            TypeLine(newLine);
+            TypeLine(task4);
+            TypeLine(newLine);
+
+            simpleSleep(500);
+
+            TypeLine(vincent);
+            TypeLine(newLine);
+            TypeLine(task5);
+            TypeLine(newLine);
+
+            simpleSleep(500);
+
+            TypeLine(jules);
+            TypeLine(newLine);
+            TypeLine(task6);
+            TypeLine(newLine);
 
             // Timer
             Stopwatch aTime = new Stopwatch();
@@ -67,25 +112,38 @@ namespace puzlhunt
 
             string timeUsed = aTime.ToString();
 
-            if (task == answer && secSpent <= 30)
+            if (secret == answer && secSpent <= 30)
             {
                 string correctString = "Correct! Good for you." + secSpent;
                 Console.Clear();
                 TypeLine(correctString);
-                string answerTwo = Console.ReadLine();
+                string QR1 = "█▀▀▀▀▀█ ▄ ▀▀▄ █▀▀▀▀▀█";
+                string QR2 = "█ ███ █ █   █ █ ███ █";
+                string QR3 = "█ ▀▀▀ █ █ █▀▀ █ ▀▀▀ █";
+                string QR4 = "▀▀▀▀▀▀▀ ▀ ▀ ▀ ▀▀▀▀▀▀▀";
+                string QR5 = "  ▀▄▄█▀█████▄▀▄▀▀█▀▀▄";
+                string QR6 = "▀█▄█▀ ▀▀▄ ▀▄▀▄▀ ▄▄▀ █";
+                string QR7 = "▀▀▀   ▀▀▄▄▀▀██ ▄   ▄▀";
+                string QR8 = "█▀▀▀▀▀█ ██▀▀█▀▄█▀▀  ▀";
+                string QR9 = "█ ███ █   ▀▄▄█▄▀▀   ▀";
+                string QR10 = "█ ▀▀▀ █ ▀█▄ ▄▀█ ▄ ▀▀▀";
+                string QR11 = "▀▀▀▀▀▀▀   ▀▀  ▀  ▀▀ ▀";
+                Console.WriteLine("\n" + QR1 + "\n" + QR2 + "\n" + QR3 + "\n" + QR4 + "\n" + QR5 + "\n" + QR6 + "\n" + QR7 + "\n" + QR8 + "\n" + QR9 + "\n" + QR10 + "\n" + QR11);
+
+                simpleSleep(10000);
 
             }
-            else if(task == answer && secSpent >= 30)
+            else if(task1 == answer && secSpent >= 30)
             {
                 string failString = "Sorry you need too type faster..." + secSpent;
                 TypeLine(failString);
             }
-            else if(task != answer && secSpent <= 30)
+            else if(task1 != answer && secSpent <= 30)
             {
                 string failString = "Ooops! I see a type-o!" + secSpent;
                 TypeLine(failString);
             }
-            else if (task != answer && secSpent >= 30)
+            else if (task1 != answer && secSpent >= 30)
             {
                 string failString = "Ooops! I see a type-o and you were too slow!" + secSpent;
                 TypeLine(failString);
@@ -124,5 +182,7 @@ namespace puzlhunt
                 System.Threading.Thread.Sleep(50); // Sleep for 150 milliseconds
             }
         }
+
+
     }
 }
