@@ -17,21 +17,26 @@ namespace puzlhunt
         {
             while (true) // While för att programmet inte ska stänga, utan börja om.
             {
-                Console.Clear();
-                string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\nPassword:\n";
-                TypeLine(welcomeText);
+                mainMenu();
+            }
+        }
 
-                string answer = Console.ReadLine();
+        static void mainMenu()
+        {
+            // Main menu
+            Console.Clear();
+            string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\nPassword:\n";
+            TypeLine(welcomeText);
 
-                if(answer == "QWERTY") // Läs vad Password är
-                {
-                    firstTask();
-                }
-                else
-                {
-                    wrongPassword();
-                }
+            string answer = Console.ReadLine();
 
+            if (answer == "QWERTY") // Läs vad Password är
+            {
+                firstTask();
+            }
+            else
+            {
+                wrongPassword();
             }
         }
      
@@ -46,11 +51,17 @@ namespace puzlhunt
             Console.Clear();
             TypeLine(task);
             TypeLine(newLine); // Måste hitta en bättre lösning.
+            
+            // Försök till reset (main menu)
+            
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            double tElapsed = watch.ElapsedMilliseconds;
+            double tElapsed = watch.ElapsedMilliseconds; // Räknar milisekunder.
             string answer = Console.ReadLine();
-            if (task == answer)
+
+            const int maxTime = 30000;
+
+            if (task == answer && tElapsed <= maxTime)
             {
                 string failString = "Correct! Good for you.";
                 Console.Clear();
@@ -58,11 +69,21 @@ namespace puzlhunt
                 string answerTwo = Console.ReadLine();
 
             }
-            else if(task != answer)
+            else if(task != answer && tElapsed >= maxTime)
             {
-                Console.WriteLine("BEEEP Wrong.");
+            
+                Console.WriteLine("Too slow and you did a type-o");
                 string answerThree = Console.ReadLine();
 
+            }
+            else if(task != answer)
+            {
+                Console.WriteLine("You did a type-o, Please try again...");
+                Console.ReadLine();
+            }
+            else if(tElapsed >= maxTime)
+            {
+                Console.WriteLine("Too slow.. Please try again.");
             }
             watch.Stop();
 
