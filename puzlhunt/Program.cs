@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Console = Colorful.Console;
 using System.Diagnostics;
+using System.Timers;
 
 namespace puzlhunt
 {
@@ -51,42 +52,44 @@ namespace puzlhunt
             Console.Clear();
             TypeLine(task);
             TypeLine(newLine); // Måste hitta en bättre lösning.
-            
-            // Försök till reset (main menu)
-            
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-            double tElapsed = watch.ElapsedMilliseconds; // Räknar milisekunder.
+
+            // Timer
+            Stopwatch aTime = new Stopwatch();
+            aTime.Start();
+
+
             string answer = Console.ReadLine();
+            aTime.Stop();
 
-            const int maxTime = 30000;
+            int minutes = (int)aTime.Elapsed.TotalMinutes;
+            double fsec = 60 * (aTime.Elapsed.TotalMinutes - minutes);
+            int secSpent = (int)fsec;
 
-            if (task == answer && tElapsed <= maxTime)
+            string timeUsed = aTime.ToString();
+
+            if (task == answer && secSpent <= 30)
             {
-                string failString = "Correct! Good for you.";
+                string correctString = "Correct! Good for you." + secSpent;
                 Console.Clear();
-                TypeLine(failString);
+                TypeLine(correctString);
                 string answerTwo = Console.ReadLine();
 
             }
-            else if(task != answer && tElapsed >= maxTime)
+            else if(task == answer && secSpent >= 30)
             {
-            
-                Console.WriteLine("Too slow and you did a type-o");
-                string answerThree = Console.ReadLine();
-
+                string failString = "Sorry you need too type faster..." + secSpent;
+                TypeLine(failString);
             }
-            else if(task != answer)
+            else if(task != answer && secSpent <= 30)
             {
-                Console.WriteLine("You did a type-o, Please try again...");
-                Console.ReadLine();
+                string failString = "Ooops! I see a type-o!" + secSpent;
+                TypeLine(failString);
             }
-            else if(tElapsed >= maxTime)
+            else if (task != answer && secSpent >= 30)
             {
-                Console.WriteLine("Too slow.. Please try again.");
+                string failString = "Ooops! I see a type-o and you were too slow!" + secSpent;
+                TypeLine(failString);
             }
-            watch.Stop();
-
 
         }
 
