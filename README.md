@@ -1,3 +1,3 @@
 # Puzlhunt-task
 
-It's just a private project.
+It's a task for my puzlhunt.
