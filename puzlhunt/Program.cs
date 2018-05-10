@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using Console = Colorful.Console;
 using System.Diagnostics;
 using System.Timers;
 
@@ -167,11 +166,6 @@ namespace puzlhunt
             string wrongPassword = "Please try again...";
             TypeLine(wrongPassword);
             simpleSleep(3000);
-        }
-
-        static void writeASCII() // Skriver ut snygg ASCII text.
-        {
-            Console.WriteAscii("UNF PUZLHUNT", Color.Lime);
         }
 
         static void TypeLine(string line) // Skriver ut text sakta.
