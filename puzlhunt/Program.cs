@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 using System.Diagnostics;
 using System.Timers;
 
@@ -21,11 +20,11 @@ namespace puzlhunt
             }
         }
 
-        static void mainMenu()
+        static void mainMenu() // Första menyn för att skriva in password
         {
             // Main menu
             Console.Clear();
-            string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\nPassword:\n";
+            string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\n";
             TypeLine(welcomeText);
 
             string answer = Console.ReadLine();
@@ -34,68 +33,27 @@ namespace puzlhunt
             {
                 firstTask();
             }
+            else if(answer == "BYSOAN")
+            {
+                secoundTask();
+            }
             else
             {
                 wrongPassword();
             }
+
+
         }
-     
+
         static void firstTask() // Första uppdraget med programmet. 
         {
             string secret = "Cheese";
             correctPassword();
-            string info = "\n";
-            string vincent = "[Vincent]";
-            string jules = "[Jules]";
-            string task1 = "You know what they call a Quarter Pounder with Cheese in Paris?";
-            string task2 = "They don't call it a Quarter Pounder with Cheese?";
-            string task3 = "No, they got the metric system there, they wouldn't know what the fuck a Quarter Pounder is.";
-            string task4 = "What'd they call it?";
-            string task5 = "They call it Royale with Cheese.";
-            string task6 = "Royale with Cheese..";
-            string newLine = "\n"; // Måste hitta en bättre lösning.
-            TypeLine(info);
-            simpleSleep(3000);
-            Console.Clear();
-            TypeLine(vincent);
-            TypeLine(newLine);
-            TypeLine(task1);
-            TypeLine(newLine); // Måste hitta en bättre lösning.
 
-            simpleSleep(500);
-
-            TypeLine(jules);
-            TypeLine(newLine);
-            TypeLine(task2);
-            TypeLine(newLine);
-
-            simpleSleep(500);
-
-            TypeLine(vincent);
-            TypeLine(newLine);
-            TypeLine(task3);
-            TypeLine(newLine);
-
-            simpleSleep(500);
-
-            TypeLine(jules);
-            TypeLine(newLine);
-            TypeLine(task4);
-            TypeLine(newLine);
-
-            simpleSleep(500);
-
-            TypeLine(vincent);
-            TypeLine(newLine);
-            TypeLine(task5);
-            TypeLine(newLine);
-
-            simpleSleep(500);
-
-            TypeLine(jules);
-            TypeLine(newLine);
-            TypeLine(task6);
-            TypeLine(newLine);
+            string storyTell = "[Vincent]\nYou know what they call a Quarter Pounder with Cheese in Paris?\n[Jules]\n" +
+                "They don't call it a Quarter Pounder with Cheese?\n[Vincent]\nNo, they got the metric system there, they wouldn't know what the fuck a QuarterPounder is.\n" +
+                "[Jules]\nWhat'd they call it?\n[Vincent]\nRoyale with Cheese..\n\nAnswer: ";
+            TypeLine(storyTell);
 
             // Timer
             Stopwatch aTime = new Stopwatch();
@@ -109,7 +67,7 @@ namespace puzlhunt
             double fsec = 60 * (aTime.Elapsed.TotalMinutes - minutes);
             int secSpent = (int)fsec;
 
-            string timeUsed = aTime.ToString();
+            // string timeUsed = aTime.ToString();
 
             if (secret == answer && secSpent <= 30)
             {
@@ -132,22 +90,28 @@ namespace puzlhunt
                 simpleSleep(10000);
 
             }
-            else if(task1 == answer && secSpent >= 30)
+            else if (secret == answer && secSpent >= 30)
             {
                 string failString = "Sorry you need too type faster..." + secSpent;
                 TypeLine(failString);
             }
-            else if(task1 != answer && secSpent <= 30)
+            else if (secret != answer && secSpent <= 30)
             {
                 string failString = "Ooops! I see a type-o!" + secSpent;
                 TypeLine(failString);
             }
-            else if (task1 != answer && secSpent >= 30)
+            else if (secret != answer && secSpent >= 30)
             {
                 string failString = "Ooops! I see a type-o and you were too slow!" + secSpent;
                 TypeLine(failString);
             }
 
+        }
+
+        static void secoundTask() // Andra uppdraget med programmet
+        {
+            correctPassword();
+            TypeLine("");
         }
 
         static void correctPassword() // Om man skriver rätt lösenord.
