@@ -24,12 +24,12 @@ namespace puzlhunt
         {
             // Main menu
             Console.Clear();
-            string welcomeText = "Welcome to UNF Puzlhunt \nPlease enter your password.\n";
+            string welcomeText = "Välkommen till UNF Puzlhunt \nSkriv in lösenordet.\n";
             TypeLine(welcomeText);
 
             string answer = Console.ReadLine();
 
-            if (answer == "QWERTY") // Läs vad Password är
+            if (answer == "TCt3RDS9jMBe") // Läs vad Password är
             {
                 firstTask();
             }
@@ -47,12 +47,15 @@ namespace puzlhunt
 
         static void firstTask() // Första uppdraget med programmet. 
         {
-            string secret = "Cheese";
+            string secret = "Royale with Cheese";
+            string secret2 = "Royale with cheese";
+            string secret3 = "Royale With Cheese";
+            string secret4 = "royale with cheese";
             correctPassword();
 
             string storyTell = "[Vincent]\nYou know what they call a Quarter Pounder with Cheese in Paris?\n[Jules]\n" +
                 "They don't call it a Quarter Pounder with Cheese?\n[Vincent]\nNo, they got the metric system there, they wouldn't know what the fuck a QuarterPounder is.\n" +
-                "[Jules]\nWhat'd they call it?\n[Vincent]\nRoyale with Cheese..\n\nAnswer: ";
+                "[Jules]\nWhat'd they call it?\n[Vincent]\n";
             TypeLine(storyTell);
 
             // Timer
@@ -69,22 +72,22 @@ namespace puzlhunt
 
             // string timeUsed = aTime.ToString();
 
-            if (secret == answer && secSpent <= 30)
+            if (secret == answer || secret2 == answer || secret3 == answer || secret4 == answer && secSpent <= 30)
             {
                 string correctString = "Correct! Good for you." + secSpent;
                 Console.Clear();
                 TypeLine(correctString);
-                string QR1 = "█▀▀▀▀▀█ ▄ ▀▀▄ █▀▀▀▀▀█";
-                string QR2 = "█ ███ █ █   █ █ ███ █";
-                string QR3 = "█ ▀▀▀ █ █ █▀▀ █ ▀▀▀ █";
-                string QR4 = "▀▀▀▀▀▀▀ ▀ ▀ ▀ ▀▀▀▀▀▀▀";
-                string QR5 = "  ▀▄▄█▀█████▄▀▄▀▀█▀▀▄";
-                string QR6 = "▀█▄█▀ ▀▀▄ ▀▄▀▄▀ ▄▄▀ █";
-                string QR7 = "▀▀▀   ▀▀▄▄▀▀██ ▄   ▄▀";
-                string QR8 = "█▀▀▀▀▀█ ██▀▀█▀▄█▀▀  ▀";
-                string QR9 = "█ ███ █   ▀▄▄█▄▀▀   ▀";
-                string QR10 = "█ ▀▀▀ █ ▀█▄ ▄▀█ ▄ ▀▀▀";
-                string QR11 = "▀▀▀▀▀▀▀   ▀▀  ▀  ▀▀ ▀";
+                string QR1 = "▄▄▄▄▄▄▄  ▄ ▄▄ ▄▄▄▄▄▄▄";
+                string QR2 = "█ ▄▄▄ █ ██ ▀▄ █ ▄▄▄ █";
+                string QR3 = "█ ███ █ ▄▀ ▀▄ █ ███ █";
+                string QR4 = "█▄▄▄▄▄█ █ ▄▀█ █▄▄▄▄▄█";
+                string QR5 = "▄▄ ▄  ▄▄▀██▀▀ ▄▄▄ ▄▄ ";
+                string QR6 = "██▄▀▀▀▄ █   ▄█▄ ▀▄▄▀█";
+                string QR7 = "  ▀▄▀▀▄▄ ▀▄▀▄█▀▄▄▀ ▀▄";
+                string QR8 = "▄▄▄▄▄▄▄ █▀▀▀  ▄█▄ ▄▄▀";
+                string QR9 = "█ ▄▄▄ █  █▄█▀█▄█▀  ▄ ";
+                string QR10 = "█ ███ █ ▀█▀▀▄  ██▄ ▀█";
+                string QR11 = "█▄▄▄▄▄█ █ ▀▄▄▀▀ █▄ ▄";
                 Console.WriteLine("\n" + QR1 + "\n" + QR2 + "\n" + QR3 + "\n" + QR4 + "\n" + QR5 + "\n" + QR6 + "\n" + QR7 + "\n" + QR8 + "\n" + QR9 + "\n" + QR10 + "\n" + QR11);
 
                 simpleSleep(10000);
