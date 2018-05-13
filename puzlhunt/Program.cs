@@ -33,7 +33,7 @@ namespace puzlhunt
             {
                 firstTask();
             }
-            else if(answer == "BYSOAN")
+            else if(answer == "BYSOAN" || answer == "bysoan")
             {
                 secoundTask();
             }
@@ -77,17 +77,19 @@ namespace puzlhunt
                 string correctString = "Correct! Good for you." + secSpent;
                 Console.Clear();
                 TypeLine(correctString);
-                string QR1 = "▄▄▄▄▄▄▄  ▄ ▄▄ ▄▄▄▄▄▄▄";
-                string QR2 = "█ ▄▄▄ █ ██ ▀▄ █ ▄▄▄ █";
-                string QR3 = "█ ███ █ ▄▀ ▀▄ █ ███ █";
-                string QR4 = "█▄▄▄▄▄█ █ ▄▀█ █▄▄▄▄▄█";
-                string QR5 = "▄▄ ▄  ▄▄▀██▀▀ ▄▄▄ ▄▄ ";
-                string QR6 = "██▄▀▀▀▄ █   ▄█▄ ▀▄▄▀█";
-                string QR7 = "  ▀▄▀▀▄▄ ▀▄▀▄█▀▄▄▀ ▀▄";
-                string QR8 = "▄▄▄▄▄▄▄ █▀▀▀  ▄█▄ ▄▄▀";
-                string QR9 = "█ ▄▄▄ █  █▄█▀█▄█▀  ▄ ";
-                string QR10 = "█ ███ █ ▀█▀▀▄  ██▄ ▀█";
-                string QR11 = "█▄▄▄▄▄█ █ ▀▄▄▀▀ █▄ ▄";
+
+                string QR1 = "▄▄▄▄▄▄▄ ▄▄  ▄ ▄▄▄▄▄▄▄";
+                string QR2 = "█ ▄▄▄ █ ▄▀▄ █ █ ▄▄▄ █";
+                string QR3 = "█ ███ █ █▄▄▀  █ ███ █";
+                string QR4 = "█▄▄▄▄▄█ ▄ ▄ ▄ █▄▄▄▄▄█";
+                string QR5 = "▄▄▄▄  ▄ ▄▀█  ▄  ▄▄▄ ▄";
+                string QR6 = "█▀▄ █▀▄▄ █▄ ██▄█▀▀▀▄█";
+                string QR7 = " ▄ ▀▄▀▄█▀█▄▄▀█▄  ▀ ▀▀";
+                string QR8 = "▄▄▄▄▄▄▄ ▀ ▀  ▄▀▄█▄   ";
+                string QR9 = "█ ▄▄▄ █  ▄ █▀▄   ██ ▀";
+                string QR10 = "█ ███ █ █ ▄▄ ▀▄  ▀ ▀ ";
+                string QR11 = "█▄▄▄▄▄█ █  ██▄▀▀█ ▄ ▀";
+
                 Console.WriteLine("\n" + QR1 + "\n" + QR2 + "\n" + QR3 + "\n" + QR4 + "\n" + QR5 + "\n" + QR6 + "\n" + QR7 + "\n" + QR8 + "\n" + QR9 + "\n" + QR10 + "\n" + QR11);
 
                 simpleSleep(10000);
@@ -114,14 +116,16 @@ namespace puzlhunt
         static void secoundTask() // Andra uppdraget med programmet
         {
             correctPassword();
-            TypeLine("");
+            TypeLine("Sorry Las, inge BYSOAN skit här inte. ;)");
+            simpleSleep(3000);
+
         }
 
         static void correctPassword() // Om man skriver rätt lösenord.
         {
             simpleSleep(3000);
             Console.Clear();
-            string passwordTrue = "Correct!";
+            string passwordTrue = "Rätt!";
             TypeLine(passwordTrue);
             System.Threading.Thread.Sleep(1500);
             Console.Clear();
@@ -130,7 +134,7 @@ namespace puzlhunt
         static void wrongPassword() // Om man skriver fel lösenord
         {
             Console.Clear();
-            string wrongPassword = "Please try again...";
+            string wrongPassword = "Försök igen...";
             TypeLine(wrongPassword);
             simpleSleep(3000);
         }
