@@ -127,6 +127,7 @@ namespace puzlhunt
 
         static void thirdTask()
         {
+            Console.Clear();
             string one1 = "__________████████_____██████";
             string one2 = "_________█░░░░░░░░██_██░░░░░░█";
             string one3 = "________█░░░░░░░░░░░█░░░░░░░░░█";
